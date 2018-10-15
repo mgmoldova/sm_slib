@@ -1,5 +1,5 @@
 /*
- * SD_SLIB.c
+ * SM_SLIB.c
  *
  * Created: 10/15/2018 5:27:52 PM
  * Author : capn-wiggles
@@ -7,6 +7,11 @@
 
 #include <avr/io.h>
 #include "inc/sd_slib.h"
+
+_UI set_baud_9600() {
+	UBRR0H = (BRC >> 8);
+	UBRR0L = BRC;
+}
 
 _BYTE config_ddr(_BYTE port, _BYTE port_conf) {
 	if(port == 'b' || port == 'B') DDRB=port_conf;
